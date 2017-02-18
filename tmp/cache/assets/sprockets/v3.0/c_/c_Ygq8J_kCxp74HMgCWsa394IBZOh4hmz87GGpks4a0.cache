@@ -1,0 +1,23 @@
+I"¢(function() {
+  this.Records = React.createClass({
+    getInitialState: function() {
+      return {
+        records: this.props.data
+      };
+    },
+    getDefaultProps: function() {
+      return {
+        records: []
+      };
+    },
+    render: function() {
+      return React.DOM.div({
+        className: 'records'
+      }, React.DOM.h2({
+        className: 'title'
+      }, 'Records'));
+    }
+  });
+
+}).call(this);
+:ET

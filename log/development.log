@@ -1,0 +1,68 @@
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRecords (20170218195853)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "date" date, "amount" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170218195853"]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-18 19:59:41 UTC], ["updated_at", 2017-02-18 19:59:41 UTC]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "records" ("title", "date", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Record 1"], ["date", Sat, 18 Feb 2017], ["amount", 500.0], ["created_at", 2017-02-18 19:59:51 UTC], ["updated_at", 2017-02-18 19:59:51 UTC]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "records" ("title", "date", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Record 2"], ["date", Sat, 18 Feb 2017], ["amount", -100.0], ["created_at", 2017-02-18 19:59:53 UTC], ["updated_at", 2017-02-18 19:59:53 UTC]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2017-02-18 20:00:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (7.3ms)
+Completed 200 OK in 44ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2017-02-18 20:02:54 +0000
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  Rendered records/index.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 1765ms (Views: 1754.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2017-02-18 20:09:07 +0000
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  Rendered records/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 504ms (Views: 499.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2017-02-18 20:11:15 +0000
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  Rendered records/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 460ms (Views: 456.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2017-02-18 20:12:11 +0000
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  Rendered records/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 68ms (Views: 64.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2017-02-18 20:13:36 +0000
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  Rendered records/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 446ms (Views: 442.3ms | ActiveRecord: 0.3ms)
+
+
