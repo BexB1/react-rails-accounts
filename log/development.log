@@ -66,3 +66,38 @@ Processing by RecordsController#index as HTML
 Completed 200 OK in 446ms (Views: 442.3ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/records" for 127.0.0.1 at 2017-02-18 20:22:42 +0000
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  Rendered records/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 486ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:20:38: unexpected indentation):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9:   </head>
+    10: 
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2532310998495400660_70233769566960'
+  Rendering /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Bex/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (96.1ms)
+Started GET "/records" for 127.0.0.1 at 2017-02-18 20:24:44 +0000
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  Rendered records/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 752ms (Views: 747.0ms | ActiveRecord: 0.4ms)
+
+
