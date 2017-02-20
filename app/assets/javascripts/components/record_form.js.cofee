@@ -3,6 +3,12 @@
     title: ''
     date: ''
     amount: ''
+  handleSubmit: (e) ->
+    e.preventDefault()
+    $.post '', { record: @state }, (data) =>
+      @props.handleNewRecord data
+      @setState @getInitialState()
+    , 'JSON'
   render: ->
     React.DOM.form
       className: 'form-inline'
@@ -15,3 +21,13 @@
           name: 'date'
           value: @state.date
           onChange: @handleChange
+          handleChange: (e) ->
+            name = e.target.name
+            @setState "#{ name }": e.target.value
+          React.DOM.button
+            type: 'submit'
+            className: 'btn btn-primary'
+            disabled: !@valid()
+            'Create record'
+            valid: ->
+              @state.title && @state.date && @state.amount
